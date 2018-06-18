@@ -1,8 +1,31 @@
 <?php
 
+
+# Start with Initial Value 1
+## [0: 1]
+## [1: 1,1]
+## [2: 1,2,1]
+## [3: 1,3,3,1]
+## [4: 1,4,6,4,1]
+
+
+
 class Pastri {
 
-  const DEFAULT_INITIAL = 1;
+  protected const DEFAULT_INITIAL = 1;
+  protected const DEFAULT_MAX_ROWS = 10;
+
+
+  function __construct ($argv){
+    $this->argv = $argv;
+  }
+
+  public static function getArgv ($argv) {
+    foreach ($argv as $value)
+    {
+      echo "$value\n";
+    }
+  }
 
   public static function initializeRow ($initial)
   {
@@ -47,5 +70,6 @@ class Pastri {
 
 //$pastry = Pastri::initializeRow(1);
 //$tasty = Pastri::setNextRow([1,2,1]);
-$test = Pastri::addPairs([1,1,3,5,7,13,17]);
+$test = Pastri::addPairs([1,2,3,5,7,11,13,17,19,23]);
+Pastri::getArgv($argv);
 sprintf($test);
