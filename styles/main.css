@@ -1,0 +1,41 @@
+.triangle-container {
+  align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #eee;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.triangle-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  align: center;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  margin: 4px;
+  padding: 2px 4px;
+  border-radius: 6px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.odd {
+  background: #333;
+  color: #fff;
+}
+
+.even {
+  background: #fff;
+}
+

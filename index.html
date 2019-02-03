@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"/>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css"/>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css"/>
+    <link rel="stylesheet" href="styles/main.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <script src="lib/pastri.js"></script>
+  </head>
+  <body>
+      
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="container">
+      <div class="row">
+        <div id="app">
+          <h1>{{ title }}</h1>
+          <input type="number" v-model="maxStages">
+          <div class="triangle-container">
+            <div class="triangle-row" v-for="row in stages">
+                <div v-bind:class="{'odd': stage % 2 !== 0,  'even': stage % 2 === 0}" class="box" v-for="stage in row">
+                    {{ stage }}
+                </div>
+            </div>
+           
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          title: 'Pascal\'s Triangle',
+          stages: calculateTriangleStages(22)
+        }
+      })
+       </script>
+  </body>
+</html>
