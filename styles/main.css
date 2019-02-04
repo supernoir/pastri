@@ -39,3 +39,7 @@
   background: #fff;
 }
 
+.fibo {
+  border: 1px solid tomato;
+  color: tomato;
+}

@@ -17,7 +17,6 @@
     <script src="lib/pastri.js"></script>
   </head>
   <body>
-      
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -28,8 +27,8 @@
           <input type="number" v-model="maxStages">
           <div class="triangle-container">
             <div class="triangle-row" v-for="row in stages">
-                <div v-bind:class="{'odd': stage % 2 !== 0,  'even': stage % 2 === 0}" class="box" v-for="stage in row">
-                    {{ stage }}
+                <div v-bind:class="{'even': stage % 2 === 0,  'odd': stage % 2 !== 0, 'fibo': checkForFibonacci(stage)}" class="box" v-for="stage in row">
+                  {{ stage }}
                 </div>
             </div>
            
@@ -39,11 +38,18 @@
       </div>
     </div>
     <script>
+      const isSquare = num => num > 0 && Math.sqrt(num) % 1 === 0;
+      const isFibonacci = num => isSquare(5 * num * num + 4) || isSquare(5 * num * num - 4);
       const app = new Vue({
         el: '#app',
         data: {
           title: 'Pascal\'s Triangle',
-          stages: calculateTriangleStages(22)
+          stages: calculateTriangleStages(64)
+        },
+        methods: {
+          checkForFibonacci: function (num) {
+            return isFibonacci(num);
+          }
         }
       })
        </script>
